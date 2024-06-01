@@ -1,1 +1,8 @@
-
+This set of analysis contains the following data files which are ready to be used for statistics and figures in RStudio. For raw data, see 
+     1. fieldtempStats 
+     - temperature loggers were deployed from March 2022 - September 2022
+     - Atlantic and Bay are the two sites where jellyfish were collected from (both in 2021, Atlantic only in 2022). 
+     - used to create figure 1A and B and associated statistics
+     2. hs2021Diff / hs2022Diff
+     -  In order to effectively compare individuals across temperatures, mean rate of bell pulsation before the first temperature change occurred (the morning of the experiment after they had been in their experimental tank overnight for ambient individuals; or 30 minutes after relocation, but before temperature change for elevated individuals), hereafter, the baseline bell pulsation rate, was subtracted from from the mean pulsation rate at each temperature.
+     - used to create figures 1A, 2A, 3A and 3B.
