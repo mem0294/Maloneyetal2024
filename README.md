@@ -24,8 +24,21 @@ For raw data, see RAW
      -  In order to effectively compare individuals across temperatures, mean rate of bell pulsation before the first temperature change occurred (the morning of the experiment after they had been in their experimental tank overnight for ambient individuals; or 30 minutes after relocation, but before temperature change for elevated individuals), hereafter, the baseline bell pulsation rate, was subtracted from from the mean pulsation rate at each temperature.
      - used to create figures 1A, 2A, 3A and 3B.
 3. TODall
-     - file contains: sampleName	sex	temp	color	shock	lengthBase	lengthPA	lengthPreStress	lengthPostStress	tempDeath	DateStress	Location
-
+     - file contains: sampleName, sex, acclimation treatment, color, shock status, length at baseline measurement (before the acclimation treatment), 	length Post acclimation,	length Pre-Stress, length Post-Stress, temperature at which the organism died,	Date of the heat stress,	and location collected from.
+     - used to crate figures 1D, 2B, 3C and D, 4A and B.
+4. accTemp1
+     - file contains hobo logger temperature data during the acclimation treatment in the ambient and evelated tank.
+     - used to create supplemental figure 4.
+5. size2022
+     - file contains sampleName, sex, acclimation treatment, color, shock, lengthTime (time point denoting when the measurement was taken), length, temperature at which the organism died, Date of Stress.
+     - this file was modified to be in long format.
+     - used to create supplemental figure 4 and 6.
+6. symbiont2022
+     -  file contains sampleName, sex, acclimation treatment, color, shock, time, symbiont density, temperature at which the organism died, Date of Stress.
+     -  used to create supplemental figure 4 and 6.
+7. percentColor1
+     - file contains sampleName, acclimation treatment,  temperature at which the organism died, percent of pixels associated with brown, and percent of pixels assocaiated with blue. (see https://peerj.com/articles/6398/ for details).
+     - used to create figure 4.
      
 
 
