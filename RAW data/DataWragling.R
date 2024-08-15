@@ -241,6 +241,13 @@ write_xlsx(hs2022Diff,"/Users/meganmaloney/Library/CloudStorage/Box-Box/Buckley 
 TODall <- read_excel("~/Library/CloudStorage/Box-Box/Buckley Lab Data/Maloney/MaloneyEtAl2024/unmodified data/TOD_allRAW.xlsx")
 write_xlsx(TODall,"/Users/meganmaloney/Library/CloudStorage/Box-Box/Buckley Lab Data/Maloney/MaloneyEtAl2024/R_Studio/Maloneyetal2024/TODall.xlsx")
 
+########Color Metrics######
+HSB_RGB_perccentBlue_TOD2022 <- read_excel("~/MaloneyEtAl2024/Analysis/Data/color/HSB_RGB_perccentBlue_TOD2022.xlsx")
+standvappS_all <- subset(HSB_RGB_perccentBlue_TOD2022, select = c("sample", "numberAppendages", "treatment", "colorByEye", "tempDead", "percentBrown", "percentBlue", "S_app", "S_stdBlue"))
+standvappS_all$stdMvalue <- (standvappS_all$S_stdBlue - standvappS_all$S_app)
+standvappS_all$valueMstd <- (standvappS_all$S_app - standvappS_all$S_stdBlue)
+write_xlsx(standvappS_all,"/MaloneyEtAl2024/R_Studio/Maloneyetal2024/ColorMetrics2024.xlsx")
+
 ####symbiont density 2022####
 symb2022$acclimation <- substr(symb2022$sampleName,2,2)
 symb2022$acclimation[symb2022$acclimation == "A"] <- 'Ambient (26°C)'
