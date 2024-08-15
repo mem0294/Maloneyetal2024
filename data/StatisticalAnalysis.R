@@ -201,12 +201,21 @@ summary(hs22_todLMER)
 #   LocationBay  -0.1497     0.1571 50.0000  -0.952   0.3454   
 sjPlot::tab_model(hs22_todLMER)
 
-######percent color####
-hs2022_percentColor <- subset(hs2022_percentColor, percentBlue < 60)
-hs2022_percentColor <- subset(hs2022_percentColor, sample != "4E_8")
-hs22_ColorDeathcorr <-  cor.test(hs2022_percentColor$percentBlue, hs2022_percentColor$tempDead, method = "pearson")
-hs22_ColorDeathcorr
-sjPlot::tab_model(hs22_ColorDeathcorr)
+######color metrics####
+#percent color
+percentBlue_Death_corr_all <-  cor.test(standvappS_all$percentBlue, standvappS_all$tempDead, method = "pearson")
+percentBlue_Death_corr_all
+sjPlot::tab_model(percentBlue_Death_corr_all)
+
+#saturation differences
+saturationDiff_Deathcorr_all <-  cor.test(standvappS_all$stdMvalue, standvappS_all$tempDead, method = "pearson")
+saturationDiff_Deathcorr_all
+sjPlot::tab_model(saturationDiff_Deathcorr_all)
+
+#number of appendages
+numbAppendages_Death_corr_all <-  cor.test(standvappS_all$numberAppendages, standvappS_all$tempDead, method = "pearson")
+numbAppendages_Death_corr_all
+sjPlot::tab_model(numbAppendages_Death_corr_all)
 
 
 ####SUPPLEMENTAL MATERIAL#####
