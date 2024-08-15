@@ -335,45 +335,67 @@ ggsave("hs22_todAcc.svg", units = c("in"), device = "svg", width = 3, height = 3
 
 
 ####Figure 4####
-ggplot(percentColor1, aes(y = tempDead, x = percentBlue)) + 
-  geom_point() +
+#A
+ggplot(standvappS_all, aes(x=percentBlue, y=tempDead)) +
+  geom_point(aes(color=colorByEye)) +
   stat_smooth(method = "lm", size = 1, se = FALSE,)+
-  scale_colour_manual(values=c(acc)) +
+  scale_color_manual(values = appCol) +
   theme(legend.position="none",
         text = element_text(size = 12),
-        axis.text = element_text(size = 12),
-        legend.text = element_text(size = 9),
-        legend.title=element_blank(), 
-        axis.line = element_line(colour = "black"),
-        panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        panel.border = element_blank(),
-        panel.background = element_blank()) +
-  #facet_wrap(~treatment, ncol = 1)+
-  #stat_cor(aes(label=..rr.label..), size = 8)+
-  ylab("") +
-  xlab("Blue appendage coverage (%)") 
-ggsave("percentBlue.svg", units = c("in"), device = "svg", width = 2, height = 2)
-
-ggplot(percentColor1, aes(y = tempDead, x = percentBlue, colour=treatment)) + 
-  geom_point() +
-  stat_smooth(method = "lm", size = 1, se = FALSE,)+
-  scale_colour_manual(values=c(acc)) +
-  theme(legend.position="none",
-        text = element_text(size = 12),
-        axis.text = element_text(size = 12),
+        axis.text = element_text(size = 8),
         legend.text = element_text(size = 12),
         legend.title=element_blank(), 
         axis.line = element_line(colour = "black"),
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         panel.border = element_blank(),
-        panel.background = element_blank()) +
-  #facet_wrap(~treatment, ncol = 1)+
-  #stat_cor(aes(label=..rr.label..), size = 8)+
+        panel.background = element_blank())+
+  stat_cor(aes(label = paste(..r.label.., ..p.label.., sep = "~`,`~")), size = 3) +
   ylab("") +
-  xlab("Blue appendage coverage (%)") 
-ggsave("percentBlueAccTreatment.svg", units = c("in"), device = "svg", width = 2, height = 2)
+  xlab("")
+ggsave("percentBlue_figure4.svg", units = c("in"), device = "svg", width = 3, height = 3)
+
+#B
+ggplot(standvappS_all, aes(x=stdMvalue, y=tempDead)) +
+  geom_point(aes(color=colorByEye)) +
+  stat_smooth(method = "lm", size = 1, se = FALSE,)+
+  scale_color_manual(values = appCol) +
+  theme(legend.position="none",
+        text = element_text(size = 8),
+        axis.text = element_text(size = 8),
+        legend.text = element_text(size = 8),
+        legend.title=element_blank(), 
+        axis.line = element_line(colour = "black"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_blank(),
+        panel.background = element_blank())+
+  stat_cor(aes(label = paste(..r.label.., ..p.label.., sep = "~`,`~")), size = 3)+
+  labs(title = element_text(""))+
+  ylab("") +
+  xlab("")
+ggsave("saturationDifference_color.svg", units = c("in"), device = "svg", width = 3, height = 3.2)
+
+#C
+ggplot(standvappS_all, aes(x=numberAppendages, y=tempDead)) +
+  geom_point(aes(color=colorByEye)) +
+  stat_smooth(method = "lm", size = 1, se = FALSE,)+
+  scale_color_manual(values = appCol) +
+  theme(legend.position="none",
+        text = element_text(size = 12),
+        axis.text = element_text(size = 8),
+        legend.text = element_text(size = 12),
+        legend.title=element_blank(), 
+        axis.line = element_line(colour = "black"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_blank(),
+        panel.background = element_blank())+
+  stat_cor(aes(label = paste(..r.label.., ..p.label.., sep = "~`,`~")), size = 3)+
+  #labs(title = element_text())+
+  xlab("") +
+  ylab("")
+ggsave("number of appendages color_Figure4.svg", units = c("in"), device = "svg", width = 3, height = 3) #"final" figure edited and saved as .ai
 
 
 ####Supplemental####
@@ -599,3 +621,49 @@ ggplot(symbiont2022, aes(x=timepoint, y=density, fill=color)) +
   xlab("") +
   ylab("Density Change")
 ggsave("symb22Color.svg", units = c("in"), device = "svg", width = 3, height = 3) 
+
+##suppFig 7##
+#A
+ggplot(standvappS_all, aes(x=percentBlue, y=tempDead)) +
+  geom_point() +
+  stat_smooth(aes(colour=treatment),method = "lm", size = 1, se = FALSE,)+
+  stat_smooth(method = "lm", size = 1, se = FALSE,)+
+  scale_color_manual(values = acc) +
+  theme(legend.position="top",
+        text = element_text(size = 12),
+        axis.text = element_text(size = 8),
+        legend.text = element_text(size = 12),
+        legend.title=element_blank(), 
+        axis.line = element_line(colour = "black"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_blank(),
+        panel.background = element_blank())+
+  #facet_wrap(~treatment, ncol = 1)+
+  #stat_cor(size = 3) +
+  ylab("") +
+  xlab("")
+ggsave("percentBlue_suppTreatment.svg", units = c("in"), device = "svg", width = 3, height = 3)
+
+
+#B
+ggplot(standvappS_all, aes(x=stdMvalue, y=tempDead, colour=treatment)) + 
+  geom_point() +
+  stat_smooth(aes(colour=treatment),method = "lm", size = 1, se = FALSE,)+
+  #stat_smooth(method = "lm", size = 1, se = FALSE,)+
+  scale_colour_manual(values=c(acc)) +
+  theme(legend.position="none",
+        text = element_text(size = 12),
+        axis.text = element_text(size = 8),
+        legend.text = element_text(size = 12),
+        legend.title=element_blank(), 
+        axis.line = element_line(colour = "black"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_blank(),
+        panel.background = element_blank()) +
+  #facet_wrap(~treatment, ncol = 1)+
+  stat_cor(aes(label = paste(..r.label.., ..p.label.., sep = "~`,`~")), size = 3)+
+  ylab("") +
+  xlab("") 
+ggsave("adjustedSaturation_treatment.svg", units = c("in"), device = "svg", width = 3, height = 3)
